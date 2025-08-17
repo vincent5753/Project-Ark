@@ -1,0 +1,7 @@
+kind: method
+# The unique name for this method
+name: adb-pull
+# A user-friendly description
+description: "Uses 'adb pull' to get files from a specified device and source."
+# The command template. Words in {{mustaches}} are variables.
+command: "adb -s {{device_id}} pull {{source_path}} {{destination_path}}"

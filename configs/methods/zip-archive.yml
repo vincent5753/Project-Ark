@@ -1,0 +1,5 @@
+kind: method
+name: zip-archive-dated
+description: "Compresses a directory into a .zip file with the current date."
+# The shell will execute the $(date) sub-command before running zip.
+command: "zip -r -9 -v '{{archive_path}}/{{archive_name}}-$(date -u '+%y%m%d').zip' '{{source_dir}}'"
