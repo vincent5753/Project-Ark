@@ -1,5 +1,5 @@
 kind: plan
-name: xperia-photos
+name: xperia-gameenhancer
 description: "Backs up photos from my XPERIA and zips them."
 # An array of steps to be executed in order
 steps:
