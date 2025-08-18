@@ -1,0 +1,4 @@
+kind: method
+name: adb-delete-file
+description: "Deletes a file on an Android device using 'adb shell rm {{target_file}}'."
+command: "adb -s {{device_id}} shell rm '{{target_file}}'"

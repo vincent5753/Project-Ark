@@ -1,0 +1,4 @@
+kind: method
+name: adb-delete-path
+description: "Deletes a file or directory on an Android device using 'adb shell rm -rf {{target_path}}'."
+command: "adb -s {{device_id}} shell rm -rf '{{target_path}}'"
