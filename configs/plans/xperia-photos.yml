@@ -12,7 +12,7 @@ steps:
       source_path: "/storage/emulated/0/DCIM/PHOTOGRAPHY_PRO/"
       destination_path: "."
   - name: "Compress the pulled photos"
-    method: zip-archive-dated
+    method: zip-archive-linux-dated
     params:
       archive_path: "."
       archive_name: "PHOTOGRAPHY_PRO"
