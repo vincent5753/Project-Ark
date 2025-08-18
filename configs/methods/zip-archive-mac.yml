@@ -2,4 +2,4 @@ kind: method
 name: zip-archive-mac-dated
 description: "Compresses a directory into a .zip file with the current date."
 # The shell will execute the $(date) sub-command before running zip.
-command: "zip -r -X '{{archive_path}}/{{archive_name}}-$(date -u '+%y%m%d').zip' '{{source_dir}}'"
+command: "zip -r -X \"{{archive_path}}/{{archive_name}}-$(date -u '+%y%m%d').zip\" \"{{source_dir}}\""
