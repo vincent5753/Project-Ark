@@ -1,0 +1,7 @@
+kind: method
+name: rsync-backup
+description: "Backs up a source path to a destination path using rsync with a user-provided set of exclude flags."
+command: |
+  rsync -aHAXv {{source_path}} \
+      {{rsync_excludes}} \
+      "{{destination_path}}/"

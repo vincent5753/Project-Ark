@@ -1,0 +1,31 @@
+kind: plan
+name: backup-example
+description: "An example plan that uses the rsync-backup method to back up the local filesystem."
+steps:
+  - name: "Backup local filesystem"
+    method: rsync-backup
+    params:
+      source_path: "/"
+      destination_path: "/mnt/backup/my-machine"
+      rsync_excludes: |
+        --exclude="/boot/grub/grub.cfg" \
+        --exclude="/dev/*" \
+        --exclude="/etc/fstab" \
+        --exclude="/lost+found" \
+        --exclude="/media/*" \
+        --exclude="/mnt/*" \
+        --exclude="/proc/*" \
+        --exclude="/run/*" \
+        --exclude="/swap.img" \
+        --exclude="/sys/*" \
+        --exclude="/tmp/*" \
+        --exclude="/var/backups" \
+        --exclude="/var/cache" \
+        --exclude="/var/crash" \
+        --exclude="/var/local" \
+        --exclude="/var/lock" \
+        --exclude="/var/mail" \
+        --exclude="/var/opt" \
+        --exclude="/var/run" \
+        --exclude="/var/spool" \
+        --exclude="/var/tmp"
