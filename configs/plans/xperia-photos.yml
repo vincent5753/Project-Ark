@@ -16,6 +16,11 @@ steps:
     params:
       extension: "JPG"
       source_dir: "./PHOTOGRAPHY_PRO"
+  - name: "Test the pulled videos"
+    method: test-media
+    params:
+      extension: "mp4"
+      source_dir: "./PHOTOGRAPHY_PRO"
   - name: "Compress the pulled photos"
     method: zip-archive-linux-dated
     params:
