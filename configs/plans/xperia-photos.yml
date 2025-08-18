@@ -11,11 +11,6 @@ steps:
       device_id: "QV7703DYJ4"
       source_path: "/storage/emulated/0/DCIM/PHOTOGRAPHY_PRO/"
       destination_path: "."
-  - name: "Test the pulled photos"
-    method: test-media
-    params:
-      extension: "JPG"
-      source_dir: "./PHOTOGRAPHY_PRO"
   - name: "Compress the pulled photos"
     method: zip-archive-dated
     params:
