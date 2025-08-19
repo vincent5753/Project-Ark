@@ -1,0 +1,6 @@
+kind: method
+name: test-media-vma-zst
+description: "Verifies Zstandard-compressed VMA file integrity."
+command: |
+  set -o pipefail
+  zstd -dc "{{filepath}}" | vma verify - -v
