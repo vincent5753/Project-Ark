@@ -30,3 +30,13 @@ steps:
       archive_path: "."
       archive_name: "GameEnhancer"
       source_dir: "./GameEnhancer"
+  - name: "Delete GameEnhancer Screenshots from phone"
+    method: adb-delete-path
+    params:
+      device_id: "QV7703DYJ4"
+      target_path: "/storage/emulated/0/Pictures/Screenshots/GameEnhancer/"
+  - name: "Delete GameEnhancer Videos from phone"
+    method: adb-delete-path
+    params:
+      device_id: "QV7703DYJ4"
+      target_path: "/storage/emulated/0/Movies/GameEnhancer/"
