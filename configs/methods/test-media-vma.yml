@@ -1,0 +1,5 @@
+kind: method
+name: test-media-vma
+description: "Verifies VMA file integrity."
+command: |
+  vma verify -v {{filepath}}

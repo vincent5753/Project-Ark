@@ -1,0 +1,5 @@
+kind: method
+name: test-media-7z
+description: "Checks archive integrity using 7z."
+command: |
+  7z t {{filepath}}

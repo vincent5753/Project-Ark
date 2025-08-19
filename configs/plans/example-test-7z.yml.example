@@ -1,0 +1,7 @@
+kind: plan
+name: example-test-7z
+description: "Example plan to test a 7z archive. Replace 'path/to/your/archive.7z' with the actual file path."
+steps:
+  - method: test-media-7z
+    params:
+      filepath: "path/to/your/archive.7z"

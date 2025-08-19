@@ -1,0 +1,5 @@
+kind: method
+name: test-media-pdfinfo
+description: "Checks for corruption in PDF files using pdfinfo."
+command: |
+  pdfinfo {{filepath}} > /dev/null

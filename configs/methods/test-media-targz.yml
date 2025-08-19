@@ -1,0 +1,6 @@
+kind: method
+name: test-media-targz
+description: "Checks tar.gz archive integrity."
+command: |
+  set -o pipefail
+  gunzip -c {{filepath}} | tar -t > /dev/null

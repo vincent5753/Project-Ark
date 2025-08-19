@@ -1,0 +1,7 @@
+kind: plan
+name: example-test-pdf
+description: "Example plan to test a PDF file. Replace 'path/to/your/file.pdf' with the actual file path."
+steps:
+  - method: test-media-pdfinfo
+    params:
+      filepath: "path/to/your/file.pdf"

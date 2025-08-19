@@ -1,0 +1,7 @@
+kind: plan
+name: example-test-targz
+description: "Example plan to test a tar.gz archive. Replace 'path/to/your/archive.tar.gz' with the actual file path."
+steps:
+  - method: test-media-targz
+    params:
+      filepath: "path/to/your/archive.tar.gz"
