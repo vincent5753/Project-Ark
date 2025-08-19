@@ -1,5 +1,5 @@
 kind: method
-name: test-media
+name: test-media-ffmpeg
 description: "Checks for corruption in media files using ffmpeg."
 command: |
   for file in {{source_dir}}/*.{{extension}}; do

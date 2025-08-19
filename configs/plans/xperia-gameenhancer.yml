@@ -15,12 +15,12 @@ steps:
       source_path: "/storage/emulated/0/Movies/GameEnhancer/"
       destination_path: "."
   - name: "Verify GameEnhancer Screenshots"
-    method: test-media
+    method: test-media-ffmpeg
     params:
       source_dir: "./GameEnhancer/*"
       extension: "png"
   - name: "Verify GameEnhancer Records"
-    method: test-media
+    method: test-media-ffmpeg
     params:
       source_dir: "./GameEnhancer/*"
       extension: "mp4"

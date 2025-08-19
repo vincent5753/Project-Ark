@@ -12,12 +12,12 @@ steps:
       source_path: "/storage/emulated/0/DCIM/PHOTOGRAPHY_PRO/"
       destination_path: "."
   - name: "Test the pulled photos"
-    method: test-media
+    method: test-media-ffmpeg
     params:
       extension: "JPG"
       source_dir: "./PHOTOGRAPHY_PRO"
   - name: "Test the pulled videos"
-    method: test-media
+    method: test-media-ffmpeg
     params:
       extension: "mp4"
       source_dir: "./PHOTOGRAPHY_PRO"
