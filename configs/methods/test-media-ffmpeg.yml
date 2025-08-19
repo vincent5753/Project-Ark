@@ -8,6 +8,6 @@ command: |
       if ffmpeg -v fatal -i "$file" -f null - 2>&1 | grep -q .; then
           echo "  ✗ SERIOUS ERROR"
       else
-          echo "  ✓ Playable (timestamp warnings only)"
+          echo "  ✓ Playable"
       fi
   done
