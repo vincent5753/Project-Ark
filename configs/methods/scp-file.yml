@@ -1,0 +1,5 @@
+kind: method
+name: scp-file
+description: "Copies a file from a source path to a destination path using scp."
+command: |
+  scp {{source_path}} {{destination_path}}

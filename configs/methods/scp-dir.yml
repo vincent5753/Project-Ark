@@ -1,0 +1,5 @@
+kind: method
+name: scp-dir
+description: "Copies a directory from a source path to a destination path using scp -r."
+command: |
+  scp -r {{source_path}} {{destination_path}}

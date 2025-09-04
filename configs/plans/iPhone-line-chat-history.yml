@@ -1,0 +1,34 @@
+kind: plan
+name: iPhone-line-chat-history
+description: "Backs up Line chat history from an iPhone."
+steps:
+  - name: "Backup Line.sqlite"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/Line.sqlite"
+      destination_path: "./line_backup/Line.sqlite"
+  - name: "Backup Line.sqlite-shm"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/Line.sqlite-shm"
+      destination_path: "./line_backup/Line.sqlite-shm"
+  - name: "Backup Line.sqlite-wal"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/Line.sqlite-wal"
+      destination_path: "./line_backup/Line.sqlite-wal"
+  - name: "Backup LineSquare.sqlite"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/LineSquare.sqlite"
+      destination_path: "./line_backup/LineSquare.sqlite"
+  - name: "Backup LineSquare.sqlite-shm"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/LineSquare.sqlite-shm"
+      destination_path: "./line_backup/LineSquare.sqlite-shm"
+  - name: "Backup LineSquare.sqlite-wal"
+    method: scp-file
+    params:
+      source_path: "mobile@matoiPhone.local:/private/var/mobile/Containers/Shared/AppGroup/3DE0F770-64AC-40D0-97A7-FA45A0FE64DD/Library/Application Support/PrivateStore/P_u6250fce55f33dea8993a273bc855f475/Messages/LineSquare.sqlite-wal"
+      destination_path: "./line_backup/LineSquare.sqlite-wal"
