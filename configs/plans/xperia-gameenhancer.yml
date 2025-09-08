@@ -30,6 +30,10 @@ steps:
       archive_path: "."
       archive_name: "GameEnhancer"
       source_dir: "./GameEnhancer"
+  - name: "Test the compressed archive"
+    method: test-media-7z
+    params:
+      filepath: "./GameEnhancer-$(date -u '+%y%m%d').zip"
   - name: "Delete GameEnhancer Screenshots from phone"
     method: adb-delete-path
     params:

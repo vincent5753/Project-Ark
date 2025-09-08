@@ -27,3 +27,7 @@ steps:
       archive_path: "."
       archive_name: "PHOTOGRAPHY_PRO"
       source_dir: "./PHOTOGRAPHY_PRO"
+  - name: "Test the compressed archive"
+    method: test-media-7z
+    params:
+      filepath: "./PHOTOGRAPHY_PRO-$(date -u '+%y%m%d').zip"
