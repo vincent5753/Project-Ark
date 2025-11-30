@@ -1,6 +1,27 @@
+# System - macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+__MACOSX
+._*
+
+# System - Windows
+Thumbs.db
+thumbcache_*.db
+desktop.ini
+
+# System - Android/Media
+.thumbdata*
+.nomedia
+
+# System - Dropbox
+.dropbox
+.dropbox.attr
+
 # XPERIA-PHOTOGRAPHY_PRO
-./PHOTOGRAPHY_PRO/*
+PHOTOGRAPHY_PRO/
 PHOTOGRAPHY_PRO-*.zip
+
 # XPERIA-GameEnhancer
-./GameEnhancer/*
+GameEnhancer/
 GameEnhancer-*.zip
