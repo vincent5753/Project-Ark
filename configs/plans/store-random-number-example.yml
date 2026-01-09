@@ -1,0 +1,14 @@
+kind: plan
+name: store-random-number-example
+description: "An example plan that generates a random number, stores it, and writes it to a file."
+steps:
+  - name: "Generate a random number between 100 and 200"
+    method: get-a-random-number-in-range
+    params:
+      min: 100
+      max: 200
+  - name: "Store the random number to a file"
+    method: store-the-given-string-to-path
+    params:
+      value: "The random number is {{ark_vars.random_number}}. The author is {{ark_vars.author}}."
+      path: "/tmp/random_number.txt"

@@ -5,6 +5,7 @@ CONFIG_DIR="./configs"
 
 # --- Main Command Handler ---
 main() {
+    ark_vars="author=vp,licence=gpl2"
     # This section is NEW. It parses for the --dry-run flag.
     DRY_RUN=0
     ARGS=()
@@ -91,16 +92,45 @@ execute_plan() {
             final_command="${final_command//\{\{$key\}\}/$value}"
         done
 
-        # MODIFIED: Core logic change for --dry-run
-        # Instead of just running eval, we check the flag first.
+        # --- Handle ark_vars replacements ---
+        local old_ifs="$IFS"
+        IFS=','
+        local vars_array=($ark_vars)
+        IFS="$old_ifs"
+
+        for pair in "${vars_array[@]}"; do
+            local key="${pair%%=*}"
+            local value="${pair#*=}"
+            final_command="${final_command//\{\{ark_vars.$key\}\}/$value}"
+        done
+        # --- End of ark_vars handling ---
+
+        # MODIFIED: Core logic change for --dry-run and ark_vars output handling
+        local var_to_update=$(yq -r '.output_to_var // ""' "$method_file")
+
         if [ "$DRY_RUN" -eq 1 ]; then
             echo "    [DRY RUN] $final_command"
+            if [ -n "$var_to_update" ]; then
+                echo "    [DRY RUN] Output would be stored in ark_vars variable: $var_to_update"
+            fi
         else
             echo "    Executing: $final_command"
-            eval "$final_command"
-            if [ $? -ne 0 ]; then
-                echo "    Error: Step failed. Aborting plan."
-                return 1
+            if [ -n "$var_to_update" ]; then
+                local command_output
+                command_output=$(eval "$final_command" | tr -d '\n\r')
+                local exit_code=${PIPESTATUS[0]}
+                if [ $exit_code -ne 0 ]; then
+                    echo "    Error: Step failed. Aborting plan."
+                    return 1
+                fi
+                ark_vars=$(echo "$ark_vars" | awk -v key="$var_to_update" -v val="$command_output" 'BEGIN { FS=OFS="," } { found=0; for(i=1; i<=NF; i++) { if ($i ~ "^"key"=") { $i = key "=" val; found=1; break; } } if (!found) { if (NF>0) { $(NF+1) = key "=" val; } else { $1 = key "=" val; } } } 1')
+                echo "    Stored output in ark_vars.$var_to_update"
+            else
+                eval "$final_command"
+                if [ $? -ne 0 ]; then
+                    echo "    Error: Step failed. Aborting plan."
+                    return 1
+                fi
             fi
             echo "    Step complete."
         fi

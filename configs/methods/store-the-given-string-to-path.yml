@@ -1,0 +1,4 @@
+kind: method
+name: store-the-given-string-to-path
+description: "Stores a given string to a specified path. The string can be from ark_vars."
+command: "echo \"{{value}}\" > {{path}}"

@@ -1,0 +1,5 @@
+kind: method
+name: get-a-random-number-in-range
+description: "Generates a random number in a given range and stores it in an ark_vars variable."
+command: "shuf -i {{min}}-{{max}} -n 1"
+output_to_var: "random_number"
