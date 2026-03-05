@@ -156,7 +156,7 @@ execute_all_plans() {
     fi
 
     for plan_file in $(find "$CONFIG_DIR/plans" -type f -name "*.yml"); do
-        local plan_name=$(yq -r '.name' "$plan_file")
+        local plan_name=$(yq '.name' "$plan_file")
         execute_plan "$plan_name"
         echo # Add a newline for better separation between plans
     done
