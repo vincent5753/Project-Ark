@@ -28,7 +28,7 @@ main() {
     ARGUMENT="$2"
 
     case "$COMMAND" in
-        backup)
+        run)
             if [ -z "$ARGUMENT" ]; then
                 execute_all_plans
             else
@@ -47,7 +47,7 @@ main() {
             fi
             ;;
         *)
-            echo "Usage: ark [--dry-run] backup [plan_name]"
+            echo "Usage: ark [--dry-run] run [plan_name]"
             echo "       ark method [method_name]"
             exit 1
             ;;
@@ -150,13 +150,13 @@ execute_plan() {
 execute_all_plans() {
     # MODIFIED: Message reflects the run mode
     if [ "$DRY_RUN" -eq 1 ]; then
-        echo "Executing dry run for all backup plans..."
+        echo "Executing dry run for all plans..."
     else
-        echo "Executing all backup plans..."
+        echo "Executing all plans..."
     fi
 
     for plan_file in $(find "$CONFIG_DIR/plans" -type f -name "*.yml"); do
-        local plan_name=$(yq '.name' "$plan_file")
+        local plan_name=$(yq -r '.name' "$plan_file")
         execute_plan "$plan_name"
         echo # Add a newline for better separation between plans
     done
